@@ -2,6 +2,7 @@ package com.example.test_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Button Click
+        Button btnSecondActivity = findViewById(R.id.btnSecond);
         TextView textView_hello = findViewById(R.id.textView);
         Button btn1 = findViewById(R.id.btn1);
 
@@ -61,8 +63,11 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-
-
+        btnSecondActivity.setOnClickListener(v -> {
+            //we can Say MainActivity.this
+            Intent intent = new Intent(this,SecondActivity.class);
+            startActivity(intent);
+        });
 
         //this will change the Hello World Color Randomly
 
