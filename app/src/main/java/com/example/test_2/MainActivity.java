@@ -31,12 +31,37 @@ public class MainActivity extends AppCompatActivity {
         TextView textView_hello = findViewById(R.id.textView);
         Button btn1 = findViewById(R.id.btn1);
 
+
         btn1.setOnClickListener(v -> {
             Random random = new Random();
             textView_hello.setText("Button Clicked !!");
             textView_hello.setTextColor(Color.rgb(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
             textView.setVisibility(v.INVISIBLE);
+            btn1.setText("CLICKED");
         });
+
+
+
+        //*** کد زیر با کد بالایی مثل همه و فرقی نمیکنه
+
+//     btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Random random = new Random();
+//                textView_hello.setText("Button Clicked !!");
+//                textView_hello.setTextColor(Color.rgb(random.nextInt(255),random.nextInt(255),random.nextInt(255)));
+//                textView.setVisibility(v.INVISIBLE);
+//            }
+//        });
+
+        //Long cLick
+        btn1.setOnLongClickListener(v -> {
+            btn1.setText("LONG CLICKED");
+            //true only for long click & false for long and click both
+            return false;
+        });
+
+
 
 
         //this will change the Hello World Color Randomly
