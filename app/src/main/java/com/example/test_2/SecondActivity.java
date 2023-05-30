@@ -1,8 +1,11 @@
 package com.example.test_2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,14 +35,14 @@ public class SecondActivity extends AppCompatActivity {
         Toast.makeText(this, "onStart called", Toast.LENGTH_SHORT).show();
     }
 
-        @Override
+    @Override
     protected void onResume() {
         super.onResume();
-            TextView textView = findViewById(R.id.textviewSecondActivity);
-            Date date = new Date();
-            textView.setText(date.toString());
-            Toast.makeText(this, "onResume called", Toast.LENGTH_SHORT).show();
-        }
+        TextView textView = findViewById(R.id.textviewSecondActivity);
+        Date date = new Date();
+        textView.setText(date.toString());
+        Toast.makeText(this, "onResume called", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onPause() {
@@ -51,5 +54,21 @@ public class SecondActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Toast.makeText(this, "onStop called", Toast.LENGTH_SHORT).show();
+    }
+
+
+    //create Option Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_second, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.about) {
+            Toast.makeText(this, item.getTitle(), Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
