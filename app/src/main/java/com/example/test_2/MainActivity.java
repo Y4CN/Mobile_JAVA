@@ -69,6 +69,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        Button formButtonActivity = findViewById(R.id.formActivity);
+
+        formButtonActivity.setOnClickListener(v ->
+        {
+            Intent intent = new Intent(this,FormActivity.class);
+            startActivity(intent);
+        });
+
+
+
+
         //this will change the Hello World Color Randomly
 
 //        btn1.setOnClickListener(new View.OnClickListener() {
